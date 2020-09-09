@@ -1,6 +1,7 @@
 package com.balram.locker.view;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.balram.locker.main.AppLockImpl;
 import com.balram.locker.utils.Locker;
@@ -19,9 +20,9 @@ public class AppLocker {
 		return instance;
 	}
 
-	public void enableAppLock(Application app) {
+	public void enableAppLock(Context context) {
 		if (curAppLocker == null) {
-			curAppLocker = new AppLockImpl(app);
+			curAppLocker = new AppLockImpl(context);
 		}
 		curAppLocker.enable();
 	}

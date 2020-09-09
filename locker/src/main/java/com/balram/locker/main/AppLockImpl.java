@@ -2,6 +2,7 @@ package com.balram.locker.main;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -24,10 +25,9 @@ public class AppLockImpl extends Locker implements PageListener {
 
 	private long lastActive;
 
-	public AppLockImpl(Application app) {
+	public AppLockImpl(Context context) {
 		super();
-		SharedPreferences settings = PreferenceManager
-				.getDefaultSharedPreferences(app);
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
 		this.settings = settings;
 		this.liveCount = 0;
 		this.visibleCount = 0;

@@ -1,5 +1,6 @@
 package com.balram.locker.view;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,14 +18,12 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.balram.locker.R;
 import com.balram.locker.main.AppLockerActivity;
 import com.balram.locker.utils.Encryptor;
 import com.balram.locker.utils.Locker;
 
 public class LockActivity extends AppLockerActivity {
-	public static final String TAG = "LockActivity";
 
 	private int type = -1;
 	private String oldPasscode = null;
@@ -201,6 +200,7 @@ public class LockActivity extends AppLockerActivity {
 		}
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	protected void setupEditText(EditText editText) {
 		editText.setInputType(InputType.TYPE_NULL);
 		editText.setFilters(filters);
@@ -218,9 +218,7 @@ public class LockActivity extends AppLockerActivity {
 	}
 
 	private void onDeleteKey() {
-		if (codeField1.isFocused()) {
-
-		} else if (codeField2.isFocused()) {
+		if (codeField2.isFocused()) {
 			codeField1.requestFocus();
 			codeField1.setText("");
 		} else if (codeField3.isFocused()) {
@@ -257,7 +255,6 @@ public class LockActivity extends AppLockerActivity {
 				currentValue = 8;
 			} else if (id == R.id.button9) {
 				currentValue = 9;
-			} else {
 			}
 
 			// set the value and move the focus

@@ -24,6 +24,7 @@ public class MainActivity extends LockActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppLocker.getInstance().enableAppLock(this);
 
         btOnOff = (Button) findViewById(R.id.bt_on_off);
         btOnOff.setOnClickListener(this);
@@ -34,6 +35,7 @@ public class MainActivity extends LockActivity implements View.OnClickListener {
 
         updateUI();
     }
+
     @Override
     public void onClick(View view) {
         if (view.equals(btOnOff)) {
